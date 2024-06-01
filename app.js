@@ -22,6 +22,7 @@ app.post('/api/users', async (req, res) => {
   try {
     // Extract user data from request body
     const { userName, password } = req.body;
+    console.log(userName, password)
 
     // Create a new user document
     const newUser = new User({ userName, password });
