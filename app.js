@@ -21,10 +21,10 @@ const User = require('./models/userModel');
 app.post('/api/users', async (req, res) => {
   try {
     // Extract user data from request body
-    const { email, password } = req.body;
+    const { userName, password } = req.body;
 
     // Create a new user document
-    const newUser = new User({ email, password });
+    const newUser = new User({ userName, password });
 
     // Save the user document to the database
     await newUser.save();
