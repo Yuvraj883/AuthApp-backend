@@ -32,7 +32,7 @@ app.post('/api/users', async (req, res) => {
     // Send a success response
     res.status(201).json({ message: 'User created successfully', user: newUser });
   } catch (err) {
-    // Send an error response if something goes wrong
+    // Send an error response if something goes wrongg
     res.status(500).json({ error: err.message });
   }
 });
