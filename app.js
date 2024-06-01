@@ -1,12 +1,14 @@
-const app = require('express')();
+const express = require('express');
 const http = require('http').Server(app);
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
+const cors = require('cors');
 
-// const app = express();
+const app = express();
 
 // Middleware
 app.use(bodyParser.json());
+app.use(cors());  // Enable CORS for all routes
 
 // Connect to MongoDB Atlas
 mongoose.connect("mongodb+srv://kingyuvi88:J6fyR8PyRkPTjEkA@cluster0.k0vl13e.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0", { useNewUrlParser: true, useUnifiedTopology: true })
