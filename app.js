@@ -1,10 +1,10 @@
-const express = require('express');
+const app= require('express')();
 const http = require('http').Server(app);
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 
-const app = express();
+// const app = express();
 
 // Middleware
 app.use(bodyParser.json());
