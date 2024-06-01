@@ -37,6 +37,29 @@ app.post('/api/users', async (req, res) => {
   }
 });
 
+// Define a route to handle GET requests to fetch all users
+app.get('/api/users', async (req, res) => {
+  try {
+    const users = await User.find(); // Fetch all users
+    res.status(200).json(users);
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
+});
+
+// Define a route to handle GET requests to fetch a specific user by ID
+app.get('/api/users/:id', async (req, res) => {
+  try {
+    const user = await User.findById(req.params.id); // Fetch user by ID
+    if (!user) {
+      return res.status(404).json({ message: 'User not found' });
+    }
+    res.status(200).json(user);
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
+});
+
 // Start the HTTP server
 const PORT = process.env.PORT || 5000;
 http.listen(PORT, () => console.log(`Server is running on port ${PORT}`));
